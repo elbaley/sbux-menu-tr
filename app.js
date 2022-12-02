@@ -1,7 +1,7 @@
-import data from "/data.json" assert { type: "json" };
-const { products } = data;
-
 const productsContainer = document.querySelector("main");
+fetch("https://elbaley.github.io/sbux-menu-tr/data.json")
+  .then((response) => response.json())
+  .then((response) => addProducts(response.products, productsContainer));
 
 function addProducts(products, container) {
   for (let i = 0; i < products.length; i++) {
@@ -14,7 +14,6 @@ function addProducts(products, container) {
             ? `<img src="${products[i].imageLocation}" alt="" class="product-img">`
             : ""
         }
-       
         <div class="details">
           <h2>${products[i].product}</h2>
 
@@ -60,13 +59,11 @@ function addProducts(products, container) {
                 : ""
             }
 
-          </section>
+          </section>      
         </div>`;
     // insert html
-    currentProduct.innerHTML = currentProductHTML;
+    currentProduct.innerHTML = currentProductHTML.trim();
     // add product to the container
     container.append(currentProduct);
   }
 }
-
-addProducts(products, productsContainer);
