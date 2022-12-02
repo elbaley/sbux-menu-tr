@@ -74,7 +74,22 @@ function addProducts(products, container) {
                 </div>`
                 : ""
             }
-
+            ${
+              products[i]["Single (Tek ölçü)"]
+                ? `<div class="price-container">
+                    <span class="size">Single (Tek ölçü)</span>
+                    <span class="price">${products[i]["Single (Tek ölçü)"]}TL</span>
+                </div>`
+                : ""
+            }
+            ${
+              products[i]["Double (Duble ölçü)"]
+                ? `<div class="price-container">
+                    <span class="size">Double (Duble ölçü)</span>
+                    <span class="price">${products[i]["Double (Duble ölçü)"]}TL</span>
+                </div>`
+                : ""
+            }
           </section>      
         </div>`;
     // insert html
