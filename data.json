@@ -81,8 +81,8 @@
       "product": "Espresso",
       "imageLocation": "https://content.sbuxtr.com/images/5be10daa441106af9757d9819411a7ee.jpg",
 
-      "Solo": "19",
-      "Doppio": "23"
+      "solo": "19",
+      "doppio": "23"
     },
     {
       "product": "Espresso Con Panna",

@@ -58,6 +58,22 @@ function addProducts(products, container) {
                 </div>`
                 : ""
             }
+            ${
+              products[i].solo
+                ? `<div class="price-container">
+            <span class="size">Solo</span>
+            <span class="price">${products[i].solo}TL</span>
+            </div>`
+                : ""
+            }
+            ${
+              products[i].doppio
+                ? `<div class="price-container">
+                    <span class="size">Doppio</span>
+                    <span class="price">${products[i].doppio}TL</span>
+                </div>`
+                : ""
+            }
 
           </section>      
         </div>`;
