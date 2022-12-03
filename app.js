@@ -1,4 +1,7 @@
 const productsContainer = document.querySelector("main");
+const searchInput = document.querySelector("#search");
+console.log(searchInput);
+
 fetch("https://elbaley.github.io/sbux-menu-tr/data.json")
   .then((response) => response.json())
   .then((response) => addProducts(response.products, productsContainer));
