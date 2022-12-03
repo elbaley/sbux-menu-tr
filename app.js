@@ -1,12 +1,27 @@
 const productsContainer = document.querySelector("main");
+const searchForm = document.querySelector(".search-form");
 const searchInput = document.querySelector("#search");
-console.log(searchInput);
 
-fetch("https://elbaley.github.io/sbux-menu-tr/data.json")
-  .then((response) => response.json())
-  .then((response) => addProducts(response.products, productsContainer));
+console.log(searchForm);
+
+const fetchProducts = (filter) => {
+  fetch("https://elbaley.github.io/sbux-menu-tr/data.json")
+    .then((response) => response.json())
+    .then((response) => {
+      const filteredProducts = response.products.filter((product) =>
+        product.product.toLowerCase().includes(filter)
+      );
+      addProducts(
+        filter ? filteredProducts : response.products,
+        productsContainer
+      );
+    });
+};
 
 function addProducts(products, container) {
+  //remove existing products
+  container.innerHTML = "";
+  // add products
   for (let i = 0; i < products.length; i++) {
     const currentProduct = document.createElement("article");
     currentProduct.classList.add("product");
@@ -101,3 +116,10 @@ function addProducts(products, container) {
     container.append(currentProduct);
   }
 }
+
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  fetchProducts(searchInput.value.toLowerCase());
+});
+
+fetchProducts();
